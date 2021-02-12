@@ -22,6 +22,7 @@
         >
           GitHub
         </a>
+        <calendar />
       </div>
     </div>
   </div>
@@ -29,8 +30,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import calendar from './calendar.vue'
+export default Vue.extend({
+  name:'App',
+  components:{
+    calendar
+  }
 
-export default Vue.extend({})
+})
 </script>
 
 <style>
