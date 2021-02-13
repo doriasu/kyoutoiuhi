@@ -1,5 +1,5 @@
 <template>
-  <div id="overlay" v-show="showContent">
+  <div id="overlay" v-show="showContent" v-on:click="clickEvent">
     <div id="content">
       <p><slot></slot></p>
       <button v-on:click="clickEvent">close</button>
