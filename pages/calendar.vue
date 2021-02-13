@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="calendar">
     <h2>かれんだー{{ currentDate.month() + 1 }}月</h2>
     {{ currentDate.year() }}
-    <button @click="prevMonth">前の月</button>
-    <button @click="nextMonth">次の月</button>
-    <div style="max-width: 900px; border-top: 1px solid">
+    <div class="monthButton">
+      <button @click="prevMonth">前の月</button>
+      <button @click="nextMonth">次の月</button>
+    </div>
+    <div style="min-width: 500px; border-top: 1px solid">
       <div
         v-for="(week, index) in calendars"
         :key="index"
@@ -12,7 +14,9 @@
       >
         <div class="cell" v-for="(day, index) in week" :key="index">
           {{ day.date }}<br /><br />
-          <div @click="popup(day.date)">{{ getEval(day.date) }}</div>
+          <div class="evaluation" @click="popup(day.date)">
+            {{ getEval(day.date) }}
+          </div>
         </div>
       </div>
     </div>
@@ -121,10 +125,21 @@ export default Vue.extend({
 });
 </script>
 <style>
+.calendar {
+  align-items: center;
+  justify-content: center;
+  /* 縦に積む */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 .cell {
   flex: 1;
   min-height: 100px;
   border-right: 1px solid;
   border-bottom: 1px solid;
+}
+.evaluation {
+  cursor: pointer;
 }
 </style>

@@ -41,5 +41,11 @@ export default Vue.extend({
   width: 50%;
   padding: 1em;
   background: #fff;
+  /*　画面の中央に要素を表示させる設定　*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 </style>

@@ -22,7 +22,6 @@
         >
           GitHub
         </a>
-        <calendar />
       </div>
     </div>
   </div>
