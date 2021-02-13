@@ -1,28 +1,31 @@
 <template>
-  <div class="calendar">
-    <h2>かれんだー{{ currentDate.month() + 1 }}月</h2>
-    {{ currentDate.year() }}
-    <div class="monthButton">
-      <button @click="prevMonth">前の月</button>
-      <button @click="nextMonth">次の月</button>
-    </div>
-    <div style="min-width: 500px; border-top: 1px solid">
-      <div
-        v-for="(week, index) in calendars"
-        :key="index"
-        style="display: flex; border-left: 1px solid"
-      >
-        <div class="cell" v-for="(day, index) in week" :key="index">
-          {{ day.date }}<br /><br />
-          <div class="evaluation" @click="popup(day.date)">
-            {{ getEval(day.date) }}
+  <div>
+    <master />
+    <div class="calendar">
+      <h2>かれんだー{{ currentDate.month() + 1 }}月</h2>
+      {{ currentDate.year() }}
+      <div class="monthButton">
+        <button @click="prevMonth">前の月</button>
+        <button @click="nextMonth">次の月</button>
+      </div>
+      <div style="min-width: 500px; border-top: 1px solid">
+        <div
+          v-for="(week, index) in calendars"
+          :key="index"
+          style="display: flex; border-left: 1px solid"
+        >
+          <div class="cell" v-for="(day, index) in week" :key="index">
+            {{ day.date }}<br /><br />
+            <div class="evaluation" @click="popup(day.date)">
+              {{ getEval(day.date) }}
+            </div>
           </div>
         </div>
       </div>
+      <popup v-show="showContent" v-on:from-child="closePopup">{{
+        nowComment
+      }}</popup>
     </div>
-    <popup v-show="showContent" v-on:from-child="closePopup">{{
-      nowComment
-    }}</popup>
   </div>
 </template>
 
@@ -31,8 +34,9 @@ import moment from "moment";
 import data from "assets/sample.json";
 import Vue from "vue";
 import popup from "~/components/popup.vue";
+import master from "~/components/master.vue";
 export default Vue.extend({
-  components: { popup },
+  components: { popup,master },
   data() {
     return {
       nowComment: "",
