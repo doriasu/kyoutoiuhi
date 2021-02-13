@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>かれんだー{{ currentDate.month() + 1 }}月</h2>
+    {{currentDate.year()}}
     <button @click="prevMonth">前の月</button>
     <button @click="nextMonth">次の月</button>
     <div style="max-width: 900px; border-top: 1px solid">
@@ -10,7 +11,8 @@
         style="display: flex; border-left: 1px solid"
       >
         <div class="cell" v-for="(day, index) in week" :key="index">
-          {{ day.date }}
+          {{ day.date }}<br><br>
+          {{getEval(day.date)}}
         </div>
       </div>
     </div>
@@ -33,7 +35,6 @@ export default Vue.extend({
     calendars():{[name:string]:Number}[][] {
       return this.getCalendar();
     },
-
   },
   methods: {
     getStartDate():moment.Moment {
@@ -75,6 +76,17 @@ export default Vue.extend({
       this.currentDate = moment(this.currentDate).subtract(1, "month");
       return;
     },
+    getEval(day:Number){
+      let evaluation:string="";
+      for(let i=0;i<this.commentData.length;i++){
+        let data=this.commentData[i];
+        if(data["year"]==this.currentDate.year()&&data["month"]==this.currentDate.month()+1&&data["day"]==day){
+          evaluation=data["eval"];
+          break
+        }
+      }
+      return evaluation;
+    }
   },
   mounted() {},
 });
