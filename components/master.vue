@@ -1,7 +1,5 @@
 <template>
-  <header>
-    today's status
-  </header>
+  <header>today's status</header>
 </template>
 
 <script lang="ts">
@@ -15,15 +13,15 @@ header {
   padding: 30px 4% 10px;
   font-size: 40px;
   border-bottom: solid 5px orange;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   /* 中央揃え */
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
   /* background-color: #000000; */
 }
-body{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 </style>

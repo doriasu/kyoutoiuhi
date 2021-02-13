@@ -36,7 +36,7 @@ import Vue from "vue";
 import popup from "~/components/popup.vue";
 import master from "~/components/master.vue";
 export default Vue.extend({
-  components: { popup,master },
+  components: { popup, master },
   data() {
     return {
       nowComment: "",
