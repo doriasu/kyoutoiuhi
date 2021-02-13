@@ -16,7 +16,9 @@
         </div>
       </div>
     </div>
-    <popup v-show="showContent" v-on:from-child="closePopup">{{nowComment}}</popup>
+    <popup v-show="showContent" v-on:from-child="closePopup">{{
+      nowComment
+    }}</popup>
   </div>
 </template>
 
@@ -95,7 +97,7 @@ export default Vue.extend({
       }
       return evaluation;
     },
-    popup(day:Number) {
+    popup(day: Number) {
       let comment: string = "";
       for (let i = 0; i < this.commentData.length; i++) {
         let data = this.commentData[i];
