@@ -1,5 +1,6 @@
 <template>
   <div>
+    <master />
     <div class="calendar">
       <h2>かれんだー{{ currentDate.month() + 1 }}月</h2>
       {{ currentDate.year() }}
@@ -35,7 +36,7 @@ import Vue from "vue";
 import popup from "~/components/popup.vue";
 import master from "~/components/master.vue";
 export default Vue.extend({
-  components: { popup },
+  components: { popup,master },
   data() {
     return {
       nowComment: "",

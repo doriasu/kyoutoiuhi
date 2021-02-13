@@ -10,8 +10,10 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  data:{
-    showContent:false
+  data() {
+    return {
+      showContent: false,
+    };
   },
   methods: {
     clickEvent() {
