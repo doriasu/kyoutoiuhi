@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import moment from "moment" 
+import moment from "moment" ;
 import data from "assets/sample.json" 
 import Vue from "vue" 
 import popup from "~/components/popup.vue" 
