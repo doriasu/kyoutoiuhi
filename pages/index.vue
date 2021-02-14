@@ -26,14 +26,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import calendar from "./calendar.vue";
+import Vue from "vue"
 export default Vue.extend({
   name: "App",
-  components: {
-    calendar,
-  },
-});
+  components: {},
+})
 </script>
 
 <style>

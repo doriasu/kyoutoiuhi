@@ -1,26 +1,26 @@
 <template>
   <div id="overlay" v-show="showContent" v-on:click="clickEvent">
     <div id="content">
-      <p><slot></slot></p>
+      <p><slot /></p>
       <button v-on:click="clickEvent">close</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from "vue"
 export default Vue.extend({
   data() {
     return {
       showContent: false,
-    };
+    }
   },
   methods: {
     clickEvent() {
-      this.$emit("from-child");
+      this.$emit("from-child")
     },
   },
-});
+})
 </script>
 
 <style>
