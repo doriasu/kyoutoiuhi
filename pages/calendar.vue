@@ -30,19 +30,19 @@
 </template>
 
 <script lang="ts">
-import moment from "moment" ;
-import data from "assets/sample.json" 
-import Vue from "vue" 
-import popup from "~/components/popup.vue" 
-import master from "~/components/master.vue" 
+import moment from 'moment' 
+import data from 'assets/sample.json' 
+import Vue from 'vue' 
+import popup from '~/components/popup.vue' 
+import master from '~/components/master.vue' 
 export default Vue.extend({
   components: { popup, master },
   data() {
     return {
-      nowComment: "",
+      nowComment: '',
       showContent: false,
       currentDate: moment(),
-      commentData: data["data"],
+      commentData: data['data'],
     } 
   },
   computed: {
@@ -54,67 +54,67 @@ export default Vue.extend({
     getStartDate(): moment.Moment {
       let date = moment(this.currentDate) 
       //monthを入れると月の最初の日になる
-      date.startOf("month") 
+      date.startOf('month') 
       const youbiNum = date.day() 
-      return date.subtract(youbiNum, "days") 
+      return date.subtract(youbiNum, 'days') 
     },
     getEndDate(): moment.Moment {
       let date = moment(this.currentDate) 
-      date.endOf("month") 
+      date.endOf('month') 
       const youbiNum = date.day() 
-      return date.add(6 - youbiNum, "days") 
+      return date.add(6 - youbiNum, 'days') 
     },
     getCalendar(): { [name: string]: Number }[][] {
       let startDate = this.getStartDate() 
       const endDate = this.getEndDate() 
-      const weekNumber = Math.ceil(endDate.diff(startDate, "days") / 7) 
+      const weekNumber = Math.ceil(endDate.diff(startDate, 'days') / 7) 
 
       let calendars: { [name: string]: Number }[][] = [] 
       for (let week = 0; week < weekNumber; week++) {
         let weekRow: { [name: string]: Number }[] = [] 
         for (let day = 0; day < 7; day++) {
           weekRow.push({
-            date: startDate.get("date"),
+            date: startDate.get('date'),
           }) 
-          startDate.add(1, "days") 
+          startDate.add(1, 'days') 
         }
         calendars.push(weekRow) 
       }
       return calendars 
     },
     nextMonth() {
-      this.currentDate = moment(this.currentDate).add(1, "month") 
+      this.currentDate = moment(this.currentDate).add(1, 'month') 
       return 
     },
     prevMonth() {
-      this.currentDate = moment(this.currentDate).subtract(1, "month") 
+      this.currentDate = moment(this.currentDate).subtract(1, 'month') 
       return 
     },
     getEval(day: Number) {
-      let evaluation: string = "" 
+      let evaluation: string = '' 
       for (let i = 0; i < this.commentData.length; i++) {
         let data = this.commentData[i] 
         if (
-          data["year"] == this.currentDate.year() &&
-          data["month"] == this.currentDate.month() + 1 &&
-          data["day"] == day
+          data['year'] == this.currentDate.year() &&
+          data['month'] == this.currentDate.month() + 1 &&
+          data['day'] == day
         ) {
-          evaluation = data["eval"] 
+          evaluation = data['eval'] 
           break 
         }
       }
       return evaluation 
     },
     popup(day: Number) {
-      let comment: string = "" 
+      let comment: string = '' 
       for (let i = 0; i < this.commentData.length; i++) {
         let data = this.commentData[i] 
         if (
-          data["year"] == this.currentDate.year() &&
-          data["month"] == this.currentDate.month() + 1 &&
-          data["day"] == day
+          data['year'] == this.currentDate.year() &&
+          data['month'] == this.currentDate.month() + 1 &&
+          data['day'] == day
         ) {
-          comment = data["comment"] 
+          comment = data['comment'] 
           break 
         }
       }

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   methods: {
     clickEvent() {
-      this.$emit("from-child")
+      this.$emit('from-child')
     },
   },
 })
