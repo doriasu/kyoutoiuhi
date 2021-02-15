@@ -25,6 +25,7 @@
       <popup v-show="showContent" v-on:from-child="closePopup">{{
         nowComment
       }}</popup>
+      <twitter />
     </div>
   </div>
 </template>
@@ -34,9 +35,10 @@ import moment from 'moment'
 import data from 'assets/sample.json' 
 import Vue from 'vue' 
 import popup from '~/components/popup.vue' 
-import master from '~/components/master.vue' 
+import master from '~/components/master.vue'
+import twitter from '~/components/twitter.vue' 
 export default Vue.extend({
-  components: { popup, master },
+  components: { popup, master,twitter },
   data() {
     return {
       nowComment: '',
