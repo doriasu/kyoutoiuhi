@@ -24,6 +24,7 @@
       </div>
       <popup v-show="showContent" v-on:from-child="closePopup">{{ nowComment }}</popup>
       <twitter />
+      {{$store.state.twitterInfo.user_id}}
     </div>
   </div>
 </template>

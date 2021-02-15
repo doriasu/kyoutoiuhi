@@ -48,6 +48,7 @@ export default Vue.extend({
         .then((result)=>{
             console.log('----debug-------')
             console.log(result.additionalUserInfo.username)
+            this.$store.commit('twitterInfo/LOGIN',result.additionalUserInfo.username)
         })
     },
   },
